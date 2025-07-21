@@ -20,6 +20,7 @@ export const ChatPage = ({ userName, isAuthenticated }: ChatProps) => {
     handleInputChange,
     handleSubmit: originalHandleSubmit,
     isLoading,
+    error
   } = useChat();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,6 +42,16 @@ export const ChatPage = ({ userName, isAuthenticated }: ChatProps) => {
           role="log"
           aria-label="Chat messages"
         >
+          {error && (
+            <div className="mb-4 rounded-lg border border-red-500 bg-red-50 p-4 dark:bg-red-900/20">
+              <div className="text-sm font-medium text-red-600 dark:text-red-400">
+                Error
+              </div>
+              <div className="mt-1 text-sm text-red-700 dark:text-red-300">
+                {error.message || "An unexpected error occurred. Please try again."}
+              </div>
+            </div>
+          )}
           {messages.map((message, index) => {
             return (
               <ChatMessage
