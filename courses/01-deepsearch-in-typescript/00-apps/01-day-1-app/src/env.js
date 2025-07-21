@@ -14,6 +14,7 @@ export const env = createEnv({
         : z.string().min(1).optional(),
     DATABASE_URL: z.string().url(),
     OPENAI_API_KEY: z.string().min(1),
+    SERPER_API_KEY: z.string().min(1),
     AUTH_DISCORD_ID: z.string().min(1),
     AUTH_DISCORD_SECRET: z.string().min(1),
     NODE_ENV: z
@@ -37,6 +38,7 @@ export const env = createEnv({
     AUTH_SECRET: process.env.AUTH_SECRET,
     DATABASE_URL: process.env.DATABASE_URL,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    SERPER_API_KEY: process.env.SERPER_API_KEY,
     AUTH_DISCORD_ID: process.env.AUTH_DISCORD_ID,
     AUTH_DISCORD_SECRET: process.env.AUTH_DISCORD_SECRET,
     NODE_ENV: process.env.NODE_ENV,
